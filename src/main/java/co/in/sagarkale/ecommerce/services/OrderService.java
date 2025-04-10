@@ -52,16 +52,19 @@ public class OrderService {
             orderItem.setActive(true);
             orderItem.setOrder(createdOrder);
             Product product = productRepository.findById(cartItem.getProductId()).get();
-            orderItem.setProduct(product);
+            orderItem.setProductId(product.getId());
             orderItem.setQuantity(cartItem.getQuantity());
             orderItems.add(orderItem);
 
-            orderAmount += product.getPrice();
+            orderAmount += (float) (product.getPrice() * cartItem.getQuantity());
         }
 
         orderItemRepository.saveAll(orderItems);
         order.setAmount(orderAmount);
         createdOrder.setOrderItem(orderItems);
+
+        existingCart.setActive(false);
+        cartRepository.save(existingCart);
 
         return createdOrder;
     }

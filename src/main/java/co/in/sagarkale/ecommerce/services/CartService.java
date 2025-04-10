@@ -2,7 +2,6 @@ package co.in.sagarkale.ecommerce.services;
 
 import co.in.sagarkale.ecommerce.entities.Cart;
 import co.in.sagarkale.ecommerce.entities.CartItem;
-import co.in.sagarkale.ecommerce.entities.Product;
 import co.in.sagarkale.ecommerce.repositories.CartItemRepository;
 import co.in.sagarkale.ecommerce.repositories.CartRepository;
 import co.in.sagarkale.ecommerce.repositories.UserRepository;

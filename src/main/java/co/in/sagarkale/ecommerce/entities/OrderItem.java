@@ -30,7 +30,6 @@ public class OrderItem {
     @JsonIgnore
     public Order order;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @Schema(description = "Product id", defaultValue = "0")
+    private long productId;
 }
